@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 10px;
+}
+
+.navBar button {
+  background-color: transparent;
+  border: none;
+}
+
+.logoSide {
+  display: flex;
+  align-items: center;
+}
+
+.form {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.form input {
+  height: 50px;
+  width: 500px;
+  text-indent: 10px;
+  border: none;
+}
+
+.modal {
+  width: 550px;
+  height: 535px;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: relative;
+  bottom: 535px;
+  margin-left: auto;
+  margin-right: auto;
+ 
+  display: flex;
+}
+
+.form button {
+  width: 300px;
+  height: 35px;
+  background-color: #E48586;
+  font-size: 16px;
+  color: #ffffff;
+  border: none;
+}
+
+.itemDetails {
+  display: flex;
+  justify-content: space-between;
+}
+
+.displayCard {
+  width: 100%;
+  background-color: #FFEECC;
+  padding: 10px;
+  margin-top: 50px;
+  border-radius: 5px;
+
+}
+
+.displayMainCard {
+  margin-top: 80px;
+  min-height: 500px;
+  width: 500px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: -1;
+  /* position: fixed; */
+}
+
+.displayMainCard h1 {
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.crudButtons {
+  float: right;
+  display: flex;
+  margin-top: 20px;
+  column-gap: 10px;
+  font-size: 20px;
+}
+
+.closeModal {
+  color: #ffffff;
+  float: right;
+}
