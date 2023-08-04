@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc } from "firebase/firestore";
 import { db } from "../Config/Firebase";
 
- const firestoreSlice = createSlice({
+ const updateSlice = createSlice({
     name: "db",
     initialState: [{
         item: "",
@@ -11,20 +11,20 @@ import { db } from "../Config/Firebase";
     }],
 
     reducers: {
-        addItem:  (state, action) => {
-
+        updateItem:  (state, action,{upItem}) => {
             try {
-                const docRef =  addDoc(collection(db, "items"), action.payload)
+                const docRef =  updateDoc(collection(db, "items",upItem.id), action.payload)
                 alert("Item added successfully")
             }
             catch (error) {
                 console.log(error);
             }
 
-        }
+        
+    }
     }
 })
 
-export const { addItem } = firestoreSlice.actions;
+export const { updateItem } = updateSlice.actions;
 
-export default firestoreSlice.reducer
+export default updateSlice.reducer

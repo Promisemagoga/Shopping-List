@@ -13,7 +13,6 @@ function AddForm() {
 
     const addItems = async () => {
         try {
-            const docRef = await addDoc(collection(db, "items"), {item,quantity,price})
             dispatch(addItem({
                 item: item,
                 quantity: quantity,

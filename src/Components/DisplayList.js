@@ -4,28 +4,26 @@ import { FaArrowCircleRight, FaEdit, FaTrash } from "react-icons/fa";
 import EditModal from './EditModal';
 import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import { db } from '../Config/Firebase';
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchData } from '../Redux/data';
+import { deleteItem } from '../Redux/data';
 
 function DisplayList() {
 
     const [openModal, setOpenModal] = useState(false)
     const [item, setItem] = useState([])
     const [upItem, setUpItem] = useState("")
-    const getItem = async () => {
-        try {
-            const querrySnapShot = await getDocs(collection(db, "items"));
-            const data = querrySnapShot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            }));
-            setItem(data);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    const dispatch = useDispatch()
+  
+        const { items } = useSelector((state) => state.items);
+        useEffect(() => {
+            dispatch(fetchData())
+           console.log(items);
+        }, [])
+    
+    
 
-    useEffect(() => {
-        getItem();
-    }, []);
+ 
 
 
     const deleteFun = async (event, id) => {
@@ -51,7 +49,7 @@ function DisplayList() {
             <NavBar />
             <div className='displayMainCard'>
                 <h2>My List</h2>
-                {item.map((data, index) => (
+                {items.map((data, index) => (
                     <div className='displayCard' key={index}>
                         <div className='itemDetails'>
                             <h3>{data.item}</h3>
@@ -59,7 +57,7 @@ function DisplayList() {
                             <h3>Qty:{data.quantity}</h3>
                         </div>
                         <div className='crudButtons'>
-                            < FaTrash onClick={(event) => deleteFun(event, data.id)} />
+                            < FaTrash onClick={() => dispatch(deleteItem(data.id))} />
                             <FaEdit onClick={(event) => update(data)} />
                         </div>
                     </div>

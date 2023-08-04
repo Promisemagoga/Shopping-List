@@ -18,47 +18,10 @@ setUpdatedData({
         price: upItem.price,
         quantity: upItem.quantity,
       })
-    // fetchData()
+
   }, []);
 
-  // const getItem = async () => {
-  //   try {
-  //     const querrySnapShot = await getDocs(collection(db, "items"));
-  //     const data = querrySnapShot.docs.map((doc) => ({
-  //       id: doc.id,
-  //       ...doc.data(),
-  //     }));
-  //     setUpdatedData({
-  //       itemId: data.id,
-  //       item: data.item,
-  //       price: data.price,
-  //       quantity: data.quantity
-  //     }
-
-  //     );
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-
-  //  const fetchData = async () => {
-  //   const docRef = doc(db, "items", itemId);
-  //   const docSnap = await getDoc(docRef);
-  //   if (docSnap.exists()) {
-  //     const document = {
-  //       id: docSnap.id, ...docSnap.data()
-  //     }
-  //     setUpdatedData({
-  //       item: document.item,
-  //       price: document.price,
-  //       quantity: document.quantity,
-  //     })
-  //     console.log(document);
-  //   } else {
-  //     console.log("No such document!");
-  //   }
-  // }
+ 
 
   function handleChange(event) {
     setUpdatedData({
